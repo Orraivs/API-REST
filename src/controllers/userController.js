@@ -1,5 +1,6 @@
 const { use } = require('../app');
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
 
 exports.getAll = (req, res)=>{
     User.find({})
@@ -28,6 +29,7 @@ exports.filter = (req, res) => {
 };
 
 exports.create = (req, res) => {
+    req.body.password = bcrypt.hashSync(req.body.password, 10);
     new User(req.body).save().then(user => res.status(201).send({user})).catch(e => res.status(500).send({e}));
 };
 

@@ -3,8 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const user = require('./routes/user');
 const play = require('./routes/play');
-
-localhost:3000/nombre/sneyder
+const auth = require('./routes/auth')
 
 app.get('/:nombre/:apellido',(req,res)=>{
     let {nombre, apellido} = req.params;
@@ -16,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/user', user);
 app.use('/playlist', play);
+app.use('/auth', auth);
 
 
 module.exports = app;

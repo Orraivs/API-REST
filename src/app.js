@@ -10,8 +10,9 @@ app.get('/:nombre/:apellido',(req,res)=>{
     res.status(404).send('Hola '+nombre+' '+ap)
 })
 
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/user', user);
 app.use('/playlist', play);

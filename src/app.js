@@ -5,11 +5,6 @@ const user = require('./routes/user');
 const play = require('./routes/play');
 const auth = require('./routes/auth')
 
-app.get('/:nombre/:apellido',(req,res)=>{
-    let {nombre, apellido} = req.params;
-    res.status(404).send('Hola '+nombre+' '+ap)
-})
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
